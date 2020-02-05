@@ -10,22 +10,22 @@ using AreYouHappy.Views;
 
 namespace AreYouHappy.ViewModels
 {
-    public class ItemsViewModel : BaseViewModel
+    public class QuestionsListViewModel : BaseViewModel
     {
-        public ObservableCollection<Item> Items { get; set; }
+        public ObservableCollection<Question> Questions { get; set; }
         public Command LoadItemsCommand { get; set; }
 
-        public ItemsViewModel()
+        public QuestionsListViewModel()
         {
             Title = "Browse";
-            Items = new ObservableCollection<Item>();
+            Questions = new ObservableCollection<Question>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-            MessagingCenter.Subscribe<NewItemPage, Item>(this, "AddItem", async (obj, item) =>
+            MessagingCenter.Subscribe<NewQuestionPage, Question>(this, "AddItem", async (obj, item) =>
             {
-                var newItem = item as Item;
-                Items.Add(newItem);
-                await DataStore.AddItemAsync(newItem);
+                var question = item as Question;
+                Questions.Add(question);
+                await DataStore.AddItemAsync(question);
             });
         }
 
@@ -38,11 +38,11 @@ namespace AreYouHappy.ViewModels
 
             try
             {
-                Items.Clear();
-                var items = await DataStore.GetItemsAsync(true);
-                foreach (var item in items)
+                Questions.Clear();
+                var questions = await DataStore.GetItemsAsync(true);
+                foreach (var question in questions)
                 {
-                    Items.Add(item);
+                    Questions.Add(question);
                 }
             }
             catch (Exception ex)

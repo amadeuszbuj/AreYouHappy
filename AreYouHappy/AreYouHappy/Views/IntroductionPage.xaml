@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AreYouHappy.Views.IntroductionPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome AreYouHappy App!"
+                Margin="20"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand"
+                   FontSize="Small"
+                   />
+            <Label Text="I want to make you wonder about one of the most important 'thing' in life.
+                   So, The big question Is...."
+                   FontSize="Medium"
+                   Margin="30"
+                   VerticalOptions="CenterAndExpand" 
+                
+                   HorizontalOptions="CenterAndExpand" />
+            <Label Text="Are You Happy?"
+                   FontSize="Large"
+                   FontAttributes="Bold"
+                   VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="CenterAndExpand" />
+            <Button Text="Yes" Clicked="YesButton_Clicked"
+                    WidthRequest="300"
+                    HeightRequest="40"
+                    BackgroundColor="LightGreen"
+                    BorderColor="Green"
+                    BorderWidth="2"
+                    CornerRadius="5"
+
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand"></Button>
+            <Button Text="No, i don't think so" Clicked="NoButton_Clicked"
+                    WidthRequest="300"
+                    HeightRequest="40"
+                    BackgroundColor="DodgerBlue"
+                    BorderColor="DarkBlue"
+                    BorderWidth="2"
+                    CornerRadius="5"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

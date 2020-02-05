@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AreYouHappy.Views.InformationPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Ok, so you're saying, that you're not happy...
+                   I've got some questions for you. I really believe, that those questions 
+                   let you think about your happiness one more time, and i hope somehow you'll change your mind"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            
+            <Button Text="Ok, show me those questions" Clicked="ShowQuestListBtn_Clicked"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

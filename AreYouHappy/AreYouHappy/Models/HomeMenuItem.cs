@@ -6,8 +6,9 @@ namespace AreYouHappy.Models
 {
     public enum MenuItemType
     {
+        Introduction,
         Browse,
-        About
+        About,
     }
     public class HomeMenuItem
     {

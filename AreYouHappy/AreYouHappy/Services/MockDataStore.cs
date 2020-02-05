@@ -6,61 +6,60 @@ using AreYouHappy.Models;
 
 namespace AreYouHappy.Services
 {
-    public class MockDataStore : IDataStore<Item>
+    public class MockDataStore : IDataStore<Question>
     {
-        List<Item> items;
+        List<Question> _questions;
 
         public MockDataStore()
         {
-            items = new List<Item>();
-            var mockItems = new List<Item>
+            _questions = new List<Question>();
+
+            var mockItems = new List<Question>
             {
-                new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Second item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Third item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." },
+                new Question { Id = Guid.NewGuid().ToString(), QuestionText = "First question", Description="This is an question description." },
+                new Question { Id = Guid.NewGuid().ToString(), QuestionText = "Second question", Description="This is an question description." },
+                new Question { Id = Guid.NewGuid().ToString(), QuestionText = "Third question", Description="This is an question description." },
+               
             };
 
-            foreach (var item in mockItems)
+            foreach (var question in mockItems)
             {
-                items.Add(item);
+                _questions.Add(question);
             }
         }
 
-        public async Task<bool> AddItemAsync(Item item)
+        public async Task<bool> AddItemAsync(Question question)
         {
-            items.Add(item);
+            _questions.Add(question);
 
             return await Task.FromResult(true);
         }
 
-        public async Task<bool> UpdateItemAsync(Item item)
+        public async Task<bool> UpdateItemAsync(Question question)
         {
-            var oldItem = items.Where((Item arg) => arg.Id == item.Id).FirstOrDefault();
-            items.Remove(oldItem);
-            items.Add(item);
+            var oldItem = _questions.FirstOrDefault(arg => arg.Id == question.Id);
+            _questions.Remove(oldItem);
+            _questions.Add(question);
 
             return await Task.FromResult(true);
         }
 
         public async Task<bool> DeleteItemAsync(string id)
         {
-            var oldItem = items.Where((Item arg) => arg.Id == id).FirstOrDefault();
-            items.Remove(oldItem);
+            var oldItem = _questions.FirstOrDefault(arg => arg.Id == id);
+            _questions.Remove(oldItem);
 
             return await Task.FromResult(true);
         }
 
-        public async Task<Item> GetItemAsync(string id)
+        public async Task<Question> GetItemAsync(string id)
         {
-            return await Task.FromResult(items.FirstOrDefault(s => s.Id == id));
+            return await Task.FromResult(_questions.FirstOrDefault(s => s.Id == id));
         }
 
-        public async Task<IEnumerable<Item>> GetItemsAsync(bool forceRefresh = false)
+        public async Task<IEnumerable<Question>> GetItemsAsync(bool forceRefresh = false)
         {
-            return await Task.FromResult(items);
+            return await Task.FromResult(_questions);
         }
     }
 }

@@ -17,7 +17,8 @@ namespace AreYouHappy.Views
 
             MasterBehavior = MasterBehavior.Popover;
 
-            MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
+//            MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
+            MenuPages.Add((int)MenuItemType.Introduction, (NavigationPage)Detail);
         }
 
         public async Task NavigateFromMenu(int id)
@@ -26,8 +27,11 @@ namespace AreYouHappy.Views
             {
                 switch (id)
                 {
+                    case (int)MenuItemType.Introduction:
+                        MenuPages.Add(id, new NavigationPage(new IntroductionPage()));
+                        break;
                     case (int)MenuItemType.Browse:
-                        MenuPages.Add(id, new NavigationPage(new ItemsPage()));
+                        MenuPages.Add(id, new NavigationPage(new QuestionsListPage()));
                         break;
                     case (int)MenuItemType.About:
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));

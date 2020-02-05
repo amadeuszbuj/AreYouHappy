@@ -9,18 +9,18 @@ using AreYouHappy.Models;
 namespace AreYouHappy.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class NewItemPage : ContentPage
+    public partial class NewQuestionPage : ContentPage
     {
-        public Item Item { get; set; }
+        public Question Question { get; set; }
 
-        public NewItemPage()
+        public NewQuestionPage()
         {
             InitializeComponent();
 
-            Item = new Item
+            Question = new Question()
             {
-                Text = "Item name",
-                Description = "This is an item description."
+                QuestionText = "Question text",
+                Description = "This is an question description."
             };
 
             BindingContext = this;
@@ -28,7 +28,7 @@ namespace AreYouHappy.Views
 
         async void Save_Clicked(object sender, EventArgs e)
         {
-            MessagingCenter.Send(this, "AddItem", Item);
+            MessagingCenter.Send(this, "AddItem", Question);
             await Navigation.PopModalAsync();
         }
 

@@ -26,7 +26,7 @@ namespace AreYouHappy.Views
 
             var item = new Item
             {
-                Text = "Item 1",
+                Text = "Question 1",
                 Description = "This is an item description."
             };
 

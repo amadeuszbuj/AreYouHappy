@@ -14,39 +14,40 @@ using AreYouHappy.ViewModels;
 namespace AreYouHappy.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ItemsPage : ContentPage
+    public partial class QuestionsListPage : ContentPage
     {
-        ItemsViewModel viewModel;
+        QuestionsListViewModel viewModel;
 
-        public ItemsPage()
+        public QuestionsListPage()
         {
             InitializeComponent();
 
-            BindingContext = viewModel = new ItemsViewModel();
+            BindingContext = viewModel = new QuestionsListViewModel();
         }
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            var item = args.SelectedItem as Item;
-            if (item == null)
+            var question = args.SelectedItem as Question;
+            if (question == null)
                 return;
 
-            await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
+//            await Navigation.PushAsync(new QuestionPage(new QuestionPageViewModel(question)));
+            await Navigation.PushModalAsync(new QuestionPage(new QuestionPageViewModel(question)));
 
             // Manually deselect item.
-            ItemsListView.SelectedItem = null;
+            QuestionsListView.SelectedItem = null;
         }
 
         async void AddItem_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new NewItemPage()));
+            await Navigation.PushModalAsync(new NavigationPage(new NewQuestionPage()));
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
 
-            if (viewModel.Items.Count == 0)
+            if (viewModel.Questions.Count == 0)
                 viewModel.LoadItemsCommand.Execute(null);
         }
     }
