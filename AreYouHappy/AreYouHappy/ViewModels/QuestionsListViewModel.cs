@@ -17,7 +17,7 @@ namespace AreYouHappy.ViewModels
 
         public QuestionsListViewModel()
         {
-            Title = "Browse";
+            Title = "QuestionsList";
             Questions = new ObservableCollection<Question>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 

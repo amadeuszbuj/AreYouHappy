@@ -19,12 +19,12 @@ namespace AreYouHappy.Views
 
 	    async void YesButton_Clicked(object sender, EventArgs e)
 	    {
-	        await Navigation.PushModalAsync(new CongratsPage(), true);
+	        await Navigation.PushModalAsync(new NavigationPage(new CongratsPage()), true);
 	    }
 
 	    async void NoButton_Clicked(object sender, EventArgs e)
 	    {
-	        await Navigation.PushModalAsync(new InformationPage(), true);
+	        await Navigation.PushModalAsync(new NavigationPage(new InformationPage()), true);
 	    }
 	}
 }

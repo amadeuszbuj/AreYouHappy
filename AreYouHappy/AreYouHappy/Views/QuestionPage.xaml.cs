@@ -15,18 +15,15 @@ namespace AreYouHappy.Views
 		{
 			InitializeComponent ();
 	        BindingContext = this._viewModel = questionPageViewModel;
-	    }
+
+		    if (string.IsNullOrEmpty(questionPageViewModel.Question.ProTipText))
+		        ProTipButton.IsVisible = false;
+		}
 
 	    public QuestionPage()
 	    {
 	        InitializeComponent();
-
-	        var question = new Question
-	        {
-	            Id = Guid.NewGuid().ToString(),
-
-	        };
-
+            
 	        _viewModel = new QuestionPageViewModel();
 	        BindingContext = _viewModel;
 	    }
@@ -35,6 +32,22 @@ namespace AreYouHappy.Views
 	    {
 	        await Navigation.PopModalAsync();
         }
+
+	    private void ProTipButton_Clicked(object sender, EventArgs e)
+	    {
+	        ProTipLabel.IsVisible = true;
+            
+	    }
+
+	    async void YesButton_Clicked(object sender, EventArgs e)
+	    {
+	        await Navigation.PushModalAsync(new NavigationPage(new CongratsPage()), true);
+        }
+
+	    async void NoButton_Clicked(object sender, EventArgs e)
+	    {
+	        await Navigation.PopModalAsync(true);
+	    }
 	}
 
 }

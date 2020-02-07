@@ -3,23 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AreYouHappy.Models;
+using AreYouHappy.Utils;
 
 namespace AreYouHappy.Services
 {
-    public class MockDataStore : IDataStore<Question>
+    public class MockQuestionsData : IDataStore<Question>
     {
         List<Question> _questions;
 
-        public MockDataStore()
+        public MockQuestionsData()
         {
             _questions = new List<Question>();
 
             var mockItems = new List<Question>
             {
-                new Question { Id = Guid.NewGuid().ToString(), QuestionText = "First question", Description="This is an question description." },
-                new Question { Id = Guid.NewGuid().ToString(), QuestionText = "Second question", Description="This is an question description." },
-                new Question { Id = Guid.NewGuid().ToString(), QuestionText = "Third question", Description="This is an question description." },
-               
+                Resources.MockedQuestions.FirstMockedQuestion,
+                Resources.MockedQuestions.SecondMockedQuestion,
+                Resources.MockedQuestions.ThirdMockedQuestion,           
             };
 
             foreach (var question in mockItems)
@@ -60,6 +60,16 @@ namespace AreYouHappy.Services
         public async Task<IEnumerable<Question>> GetItemsAsync(bool forceRefresh = false)
         {
             return await Task.FromResult(_questions);
+        }
+
+        public Task<bool> SaveDataToLocalJson()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> LoadDataFromLocalJson()
+        {
+            throw new NotImplementedException();
         }
     }
 }

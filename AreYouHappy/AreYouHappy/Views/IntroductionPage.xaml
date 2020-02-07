@@ -5,15 +5,14 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Welcome AreYouHappy App!"
-                Margin="20"
+                Margin="10"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand"
                    FontSize="Small"
                    />
-            <Label Text="I want to make you wonder about one of the most important 'thing' in life.
-                   So, The big question Is...."
+            <Label Text="I want to make you wonder about one of the most important 'thing' in life. So, The big question Is...."
                    FontSize="Medium"
-                   Margin="30"
+                   Margin="20"
                    VerticalOptions="CenterAndExpand" 
                 
                    HorizontalOptions="CenterAndExpand" />

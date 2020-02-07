@@ -7,22 +7,53 @@
         <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked">
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="UWP" Value="add.png"/>
+                    <On Platform="UWP" Value="cancel.png"/>
                 </OnPlatform>
             </ToolbarItem.Icon>
         </ToolbarItem>
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="{Binding Question.QuestionText}"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Spacing="1">
+            <Label Text="{Binding Question.QuestionText}" 
+                   Margin="20"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
             <Label Text="{Binding Question.Description}"
+                   Margin="20"
                    VerticalOptions="CenterAndExpand" 
                    HorizontalOptions="CenterAndExpand" />
-            <Button Text="{Binding Question.FirstButtonText}"></Button>
-            <Button Text="{Binding Question.SecondButtonText }"></Button>
+            <Button Text="I'm happy right now" Clicked="YesButton_Clicked"                  
+                    WidthRequest="300"
+                    HeightRequest="40"
+                    BackgroundColor="LightGreen"
+                    BorderColor="Green"
+                    TextColor="Black"
+                    BorderWidth="2"
+                    CornerRadius="5"
+                    HorizontalOptions="CenterAndExpand"></Button>
+            <Button Text="I'm still not a happy man" Clicked="NoButton_Clicked"
+                    Margin="20"
+                    WidthRequest="300"
+                    HeightRequest="40"
+                    BackgroundColor="DeepSkyBlue"
+                    BorderColor="DarkBlue"
+                    TextColor="Black"
+                    BorderWidth="2"
+                    CornerRadius="5"
+                    HorizontalOptions="CenterAndExpand"></Button>
+            <Button x:Name="ProTipButton"
+                    Text="Show me ProTip" Clicked="ProTipButton_Clicked"
+                    WidthRequest="300"
+                    HeightRequest="40"
+                    BackgroundColor="Cyan"
+                    BorderColor="DarkBlue"
+                    TextColor="Black"
+                    BorderWidth="2"
+                    CornerRadius="5"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand"></Button>
+            <Label x:Name="ProTipLabel" VerticalOptions="EndAndExpand" IsVisible="False" Text="{Binding Question.ProTipText}" TextColor="BlueViolet"></Label>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

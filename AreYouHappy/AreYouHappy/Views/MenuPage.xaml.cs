@@ -19,9 +19,9 @@ namespace AreYouHappy.Views
             menuItems = new List<HomeMenuItem>
             {
                 new HomeMenuItem {Id = MenuItemType.Introduction, Title="Introduction" },
-                new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
-                new HomeMenuItem {Id = MenuItemType.About, Title="About" }
-            };
+                new HomeMenuItem {Id = MenuItemType.QuestionsList, Title="QuestionsList" },
+                new HomeMenuItem {Id = MenuItemType.About, Title="About" },
+                };
 
             ListViewMenu.ItemsSource = menuItems;
 

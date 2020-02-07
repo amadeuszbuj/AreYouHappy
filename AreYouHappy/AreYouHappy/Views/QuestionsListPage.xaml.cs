@@ -31,8 +31,7 @@ namespace AreYouHappy.Views
             if (question == null)
                 return;
 
-//            await Navigation.PushAsync(new QuestionPage(new QuestionPageViewModel(question)));
-            await Navigation.PushModalAsync(new QuestionPage(new QuestionPageViewModel(question)));
+            await Navigation.PushModalAsync(new NavigationPage(new QuestionPage(new QuestionPageViewModel(question))), true);
 
             // Manually deselect item.
             QuestionsListView.SelectedItem = null;

@@ -12,7 +12,7 @@ namespace AreYouHappy.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Question> DataStore => DependencyService.Get<IDataStore<Question>>() ?? new MockDataStore();
+        public IDataStore<Question> DataStore => DependencyService.Get<IDataStore<Question>>() ?? new MockQuestionsData();
 
         bool isBusy = false;
         public bool IsBusy

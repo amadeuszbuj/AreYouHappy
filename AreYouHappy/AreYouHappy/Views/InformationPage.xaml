@@ -2,15 +2,37 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AreYouHappy.Views.InformationPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="UWP" Value="cancel.png"/>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Ok, so you're saying, that you're not happy...
-                   I've got some questions for you. I really believe, that those questions 
-                   let you think about your happiness one more time, and i hope somehow you'll change your mind"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label 
+                   Text="Ok, so you're saying, that you're not happy... &#10;&#10;I've got some questions for you. I really believe, that those questions let you think about your happiness one more time, and i hope somehow you'll change your mind..."
+                   FontSize="Large"
+                   FontAttributes="Bold"
+                   VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="CenterAndExpand"
+                   Margin="20"/>
             
-            <Button Text="Ok, show me those questions" Clicked="ShowQuestListBtn_Clicked"></Button>
+            <Button Text="Show me those questions" Clicked="ShowQuestListBtn_Clicked" 
+                    Margin="20"
+                    WidthRequest="300"
+                    HeightRequest="40"
+                    BackgroundColor="LightGreen"
+                    BorderColor="Green"
+                    BorderWidth="2"
+                    CornerRadius="5"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

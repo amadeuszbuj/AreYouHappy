@@ -19,8 +19,9 @@ namespace AreYouHappy.Views
 
             Question = new Question()
             {
+                Id = Guid.NewGuid().ToString(),
                 QuestionText = "Question text",
-                Description = "This is an question description."
+                Description = "This is a question description."
             };
 
             BindingContext = this;

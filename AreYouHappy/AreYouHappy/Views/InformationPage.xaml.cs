@@ -19,7 +19,12 @@ namespace AreYouHappy.Views
 
 	    async void ShowQuestListBtn_Clicked(object sender, EventArgs e)
 	    {
-	        await Navigation.PushModalAsync(new QuestionsListPage(), true);
+	        await Navigation.PushModalAsync(new NavigationPage(new QuestionsListPage()), true);
+	    }
+
+	    async void Cancel_Clicked(object sender, EventArgs e)
+	    {
+	        await Navigation.PopModalAsync(true);
 	    }
 	}
 }
